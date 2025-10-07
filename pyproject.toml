@@ -1,6 +1,107 @@
+[project]
+name = "ARENA_3.0"
+version = "0.1.0"
+readme = "README.md"
+
 [tool.ruff]
 line-length = 100
 
 [tool.ruff.lint]
 ignore = ["E722", "E731", "F722", "E402", "E741"]
 extend-select = ["I"]
+
+
+[tool.pixi.pypi-dependencies]
+# Core ML & DL
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+huggingface-hub = "*"
+torchtext = "*"
+torchinfo = "*"
+diffusers = "*"
+wandb = "*" # ==0.13.10
+accelerate = "*"
+ftfy = "*"
+safetensors = "*"
+openai = ">=1.56.2"
+sentence-transformers = "*"
+
+# Core Data manipulation and analysis
+einops = "*"
+eindex-callum = "*"
+pandas = "*"
+numpy-stl = "*"
+scikit-learn = "*"
+hdbscan = "*"
+umap-learn = "*"
+
+# Core Utilities
+requests = "*"
+pytest = "*"
+tqdm = "*"
+ipykernel = "*"
+notebook = "*"
+ipywidgets = "==7.7.1"
+jupyterlab-widgets = "==1.1.1"
+jupyter = "*"
+pre-commit = "*"
+gdown = "*"
+portalocker = ">=2.0.0"
+typeguard = "*"
+jaxtyping = "*"
+tiktoken = "*"
+frozendict = "*"
+tabulate = "*"
+opencv-python = "*"
+nbformat = "*"
+docformatter = "*"
+
+
+[project.optional-dependencies]
+visualization = [
+    "matplotlib",
+    "plotly",
+    "streamlit",
+    "streamlit-antd-components==0.2.5",
+    "streamlit-image-select",
+    "streamlit-on-Hover-tabs",
+    "nnsight>=0.3.5",
+    "imageio-ffmpeg",
+    "mediapy",
+]
+chapter1 = [
+    "transformer_lens",
+    "sae-lens>=4.0.0,<5.0.0",
+    "sae-vis>=0.3.1",
+    "CircuitsVis @ git+https://github.com/callummcdougall/CircuitsVis.git#subdirectory=python",
+    "neel-plotly @ git+https://github.com/neelnanda-io/neel-plotly",
+]
+chapter2 = [
+    "pygame",
+    "gymnasium[atari,accept-rom-license,other,mujoco-py]==0.29.0",
+    "mujoco",
+]
+chapter3 = [
+    "inspect_ai",
+    "tabulate",
+    "wikipedia",
+    "python-dotenv",
+    "anthropic>=0.42.0",
+    "instructor",
+]
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+chapter1 = { features = ["chapter1"], solve-group = "default" }
+chapter2 = { features = ["chapter2"], solve-group = "default" }
+chapter3 = { features = ["chapter3"], solve-group = "default" }
+visualization = { features = ["visualization"], solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+python = "3.11.*"
