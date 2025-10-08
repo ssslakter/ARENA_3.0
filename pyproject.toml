@@ -2,6 +2,7 @@
 name = "ARENA_3.0"
 version = "0.1.0"
 readme = "README.md"
+dependencies = ["memory-profiler>=0.61.0,<0.62", "psutil>=7.1.0,<8", "transformer-lens==2.11.0", "einops>=0.7.0,<0.8", "eindex-callum>=0.1.2,<0.2", "jaxtyping>=0.2.38,<0.3", "circuitsvis @ git+https://github.com/callummcdougall/CircuitsVis.git#subdirectory=python"]
 
 [tool.ruff]
 line-length = 100
