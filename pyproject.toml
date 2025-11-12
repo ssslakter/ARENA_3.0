@@ -97,7 +97,7 @@ platforms = ["linux-64"]
 
 [tool.pixi.environments]
 default = { solve-group = "default" }
-chapter1 = { features = ["chapter1"], solve-group = "default" }
+chapter1 = { features = ["chapter1", "visualization"], solve-group = "default" }
 chapter2 = { features = ["chapter2"], solve-group = "default" }
 chapter3 = { features = ["chapter3"], solve-group = "default" }
 visualization = { features = ["visualization"], solve-group = "default" }
